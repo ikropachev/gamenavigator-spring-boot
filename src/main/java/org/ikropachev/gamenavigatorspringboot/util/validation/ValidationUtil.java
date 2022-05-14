@@ -1,8 +1,8 @@
 package org.ikropachev.gamenavigatorspringboot.util.validation;
 
 import lombok.experimental.UtilityClass;
-import org.ikropachev.votingspringboot.HasId;
-import org.ikropachev.votingspringboot.error.IllegalRequestDataException;
+import org.ikropachev.gamenavigatorspringboot.HasId;
+import org.ikropachev.gamenavigatorspringboot.error.IllegalRequestDataException;
 import org.springframework.core.NestedExceptionUtils;
 import org.springframework.lang.NonNull;
 

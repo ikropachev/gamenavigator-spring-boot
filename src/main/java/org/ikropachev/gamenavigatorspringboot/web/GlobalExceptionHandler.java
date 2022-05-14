@@ -2,8 +2,8 @@ package org.ikropachev.gamenavigatorspringboot.web;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.ikropachev.votingspringboot.error.AppException;
-import org.ikropachev.votingspringboot.util.validation.ValidationUtil;
+import org.ikropachev.gamenavigatorspringboot.error.AppException;
+import org.ikropachev.gamenavigatorspringboot.util.validation.ValidationUtil;
 import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.http.HttpHeaders;

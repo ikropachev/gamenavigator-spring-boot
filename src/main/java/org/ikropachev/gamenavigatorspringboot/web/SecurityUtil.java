@@ -1,7 +1,7 @@
 package org.ikropachev.gamenavigatorspringboot.web;
 
 import lombok.experimental.UtilityClass;
-import org.ikropachev.votingspringboot.model.User;
+import org.ikropachev.gamenavigatorspringboot.model.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 

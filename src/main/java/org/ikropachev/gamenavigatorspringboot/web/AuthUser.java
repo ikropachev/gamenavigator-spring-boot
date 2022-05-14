@@ -2,7 +2,7 @@ package org.ikropachev.gamenavigatorspringboot.web;
 
 import lombok.Getter;
 import lombok.ToString;
-import org.ikropachev.votingspringboot.model.User;
+import org.ikropachev.gamenavigatorspringboot.model.User;
 import org.springframework.lang.NonNull;
 
 @Getter
