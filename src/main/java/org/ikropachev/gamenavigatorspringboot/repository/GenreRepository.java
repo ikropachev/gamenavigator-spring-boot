@@ -14,7 +14,7 @@ import java.util.List;
 public interface GenreRepository extends BaseRepository<Genre> {
 
     @Query("SELECT g FROM Genre g WHERE g.id=:id")
-    Game findById(@Param("id") int id);
+    Genre findById(@Param("id") int id);
 
     @Query("SELECT g FROM Genre g WHERE g.name=:name")
     Genre findByName(@Param("name") String name);

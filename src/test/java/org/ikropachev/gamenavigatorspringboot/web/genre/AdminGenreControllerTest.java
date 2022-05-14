@@ -14,7 +14,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import static org.ikropachev.gamenavigatorspringboot.web.genre.GenreTestData.*;
 import static org.ikropachev.gamenavigatorspringboot.web.user.UserTestData.ADMIN_MAIL;
 import static org.ikropachev.gamenavigatorspringboot.web.user.UserTestData.NOT_FOUND;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -38,7 +37,7 @@ public class AdminGenreControllerTest extends AbstractControllerTest {
         int newId = created.id();
         newGenre.setId(newId);
         GENRE_MATCHER.assertMatch(created, newGenre);
-        GENRE_MATCHER.assertMatch(genreRepository.getById(newId), newGenre);
+        GENRE_MATCHER.assertMatch(genreRepository.findById(newId), newGenre);
     }
 
     @Test
@@ -85,7 +84,7 @@ public class AdminGenreControllerTest extends AbstractControllerTest {
                 .andDo(print())
                 .andExpect(status().isNoContent());
 
-        GENRE_MATCHER.assertMatch(genreRepository.getById(GENRE_ID), updated);
+        GENRE_MATCHER.assertMatch(genreRepository.findById(GENRE_ID), updated);
     }
 
     @Test

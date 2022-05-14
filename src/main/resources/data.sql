@@ -1,8 +1,8 @@
 INSERT INTO users (name, email, password, registered)
-VALUES  ('admin', 'admin@gmail.com', 'admin', '2021-12-02 18:00:00'),
-        ('user', 'user@gmail.com', 'user', '2021-12-02 18:01:00'),
-        ('second_user', 'second@gmail.com', 'second_pass', '2021-12-01 18:02:00'),
-        ('third_user', 'third@gmail.com', 'third_pass', '2021-12-01 18:03:00');
+VALUES  ('admin', 'admin@gmail.com', '{noop}admin', '2021-12-02 18:00:00'),
+        ('user', 'user@gmail.com', '{noop}user', '2021-12-02 18:01:00'),
+        ('second_user', 'second@gmail.com', '{noop}second_pass', '2021-12-01 18:02:00'),
+        ('third_user', 'third@gmail.com', '{noop}third_pass', '2021-12-01 18:03:00');
 
 INSERT INTO genres (name)
 VALUES  ('action'),

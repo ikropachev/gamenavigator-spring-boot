@@ -17,8 +17,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Game extends NamedEntity {
-    private static final String GENRE_LIST_STR = "[\n{\n\"id\": 100004,\n\"name\": \"action\"\n},\n" +
-            "    {\n\"id\": 100006,\n\"name\": \"adventure\"\n}\n]";
+    private static final String GENRE_LIST_STR = "[\n{\n\"id\": 1,\n\"name\": \"action\"\n},\n" +
+            "    {\n\"id\": 3,\n\"name\": \"adventure\"\n}\n]";
 
     @NotBlank
     @Size(min = 2, max = 100)

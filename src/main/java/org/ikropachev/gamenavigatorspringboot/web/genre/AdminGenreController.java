@@ -64,7 +64,7 @@ public class AdminGenreController {
     @Operation(summary = "View a genre by id")
     public Genre get(@PathVariable @Parameter(example = GENRE_ID_STR, required = true) int id) {
         log.info("get genre with id {}", id);
-        return genreRepository.getById(id);
+        return genreRepository.findById(id);
     }
 
     @GetMapping
