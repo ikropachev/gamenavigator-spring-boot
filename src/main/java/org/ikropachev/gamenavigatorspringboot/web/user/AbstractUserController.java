@@ -1,9 +1,9 @@
 package org.ikropachev.gamenavigatorspringboot.web.user;
 
 import lombok.extern.slf4j.Slf4j;
-import org.ikropachev.votingspringboot.model.User;
-import org.ikropachev.votingspringboot.repository.UserRepository;
-import org.ikropachev.votingspringboot.util.UserUtil;
+import org.ikropachev.gamenavigatorspringboot.model.User;
+import org.ikropachev.gamenavigatorspringboot.repository.UserRepository;
+import org.ikropachev.gamenavigatorspringboot.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;

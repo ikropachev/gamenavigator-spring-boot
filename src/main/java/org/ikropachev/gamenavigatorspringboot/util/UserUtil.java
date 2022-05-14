@@ -1,9 +1,9 @@
 package org.ikropachev.gamenavigatorspringboot.util;
 
 import lombok.experimental.UtilityClass;
-import org.ikropachev.votingspringboot.model.Role;
-import org.ikropachev.votingspringboot.model.User;
-import org.ikropachev.votingspringboot.to.UserTo;
+import org.ikropachev.gamenavigatorspringboot.model.Role;
+import org.ikropachev.gamenavigatorspringboot.model.User;
+import org.ikropachev.gamenavigatorspringboot.to.UserTo;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 

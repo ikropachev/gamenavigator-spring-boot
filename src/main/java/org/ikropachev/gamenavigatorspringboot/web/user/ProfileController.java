@@ -3,10 +3,10 @@ package org.ikropachev.gamenavigatorspringboot.web.user;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
-import org.ikropachev.votingspringboot.model.User;
-import org.ikropachev.votingspringboot.to.UserTo;
-import org.ikropachev.votingspringboot.util.UserUtil;
-import org.ikropachev.votingspringboot.web.AuthUser;
+import org.ikropachev.gamenavigatorspringboot.model.User;
+import org.ikropachev.gamenavigatorspringboot.to.UserTo;
+import org.ikropachev.gamenavigatorspringboot.util.UserUtil;
+import org.ikropachev.gamenavigatorspringboot.web.AuthUser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +18,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 
-import static org.ikropachev.votingspringboot.util.validation.ValidationUtil.assureIdConsistent;
-import static org.ikropachev.votingspringboot.util.validation.ValidationUtil.checkNew;
+import static org.ikropachev.gamenavigatorspringboot.util.validation.ValidationUtil.assureIdConsistent;
+import static org.ikropachev.gamenavigatorspringboot.util.validation.ValidationUtil.checkNew;
 
 @RestController
 @RequestMapping(value = ProfileController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)

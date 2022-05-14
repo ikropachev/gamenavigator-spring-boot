@@ -19,14 +19,15 @@ public class UserTestData {
     public static final String ADMIN_MAIL = "admin@gmail.com";
     public static final String USER_MAIL = "user@gmail.com";
 
-    public static final User admin = new User(ADMIN_ID, "Admin", ADMIN_MAIL, "admin", Role.ADMIN, Role.USER);
-    public static final User user = new User(USER_ID, "User", USER_MAIL, "password", Role.USER);
+    public static final User admin = new User(ADMIN_ID, "admin", ADMIN_MAIL, "admin", Role.ADMIN, Role.USER);
+    public static final User user = new User(USER_ID, "user", USER_MAIL, "password", Role.USER);
     public static final User user2 =
             new User(USER_ID + 1, "second_user", "second@gmail.com", "second_pass", Role.USER);
     public static final User user3 =
             new User(USER_ID + 2, "third_user", "third@gmail.com", "third_pass", Role.USER);
 
-    public static final List<User> users = List.of(admin, user, user2, user3);
+    //Users must be sorted by name, and e-mail for name duplicates.
+    public static final List<User> users = List.of(admin, user2, user3, user);
 
     public static User getNew() {
         return new User(null, "New", "new@gmail.com", "newPass", false, new Date(),

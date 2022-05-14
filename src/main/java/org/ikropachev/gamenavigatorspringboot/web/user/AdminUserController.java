@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
-import org.ikropachev.votingspringboot.model.User;
+import org.ikropachev.gamenavigatorspringboot.model.User;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,8 +17,8 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
-import static org.ikropachev.votingspringboot.util.validation.ValidationUtil.assureIdConsistent;
-import static org.ikropachev.votingspringboot.util.validation.ValidationUtil.checkNew;
+import static org.ikropachev.gamenavigatorspringboot.util.validation.ValidationUtil.assureIdConsistent;
+import static org.ikropachev.gamenavigatorspringboot.util.validation.ValidationUtil.checkNew;
 
 @RestController
 @RequestMapping(value = AdminUserController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
