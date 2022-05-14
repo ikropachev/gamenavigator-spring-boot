@@ -29,4 +29,3 @@ public class UserGameControllerTest extends AbstractControllerTest {
                 .andExpect(GAME_MATCHER.contentJson(game1, game2));
     }
 }
-}
