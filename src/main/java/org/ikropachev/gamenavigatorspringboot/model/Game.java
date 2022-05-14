@@ -1,5 +1,11 @@
 package org.ikropachev.gamenavigatorspringboot.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -7,6 +13,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "game")
+@Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Game extends NamedEntity {
     private static final String GENRE_LIST_STR = "[\n{\n\"id\": 100004,\n\"name\": \"action\"\n},\n" +
             "    {\n\"id\": 100006,\n\"name\": \"adventure\"\n}\n]";
@@ -14,7 +23,7 @@ public class Game extends NamedEntity {
     @NotBlank
     @Size(min = 2, max = 100)
     @Column(name = "developer", nullable = false)
-    //@ApiModelProperty(example = "developer")
+    @Schema(example = "developer")
     protected String developer;
 
     //https://stackoverflow.com/questions/13370221/persistentobjectexception-detached-entity-passed-to-persist-thrown-by-jpa-and-h
@@ -24,11 +33,8 @@ public class Game extends NamedEntity {
     @JoinTable(name = "game_x_genres",
             joinColumns = @JoinColumn(name = "game_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "id"))
-    //@ApiModelProperty(position = 3, example = GENRE_LIST_STR)
+    @Schema(example = GENRE_LIST_STR)
     private List<Genre> genres;
-
-    public Game() {
-    }
 
     public Game(Integer id, String name, String developer, List<Genre> genres) {
         super(id, name);
@@ -40,22 +46,6 @@ public class Game extends NamedEntity {
     public Game(Integer id, String name, String developer) {
         super(id, name);
         this.developer = developer;
-    }
-
-    public String getDeveloper() {
-        return developer;
-    }
-
-    public void setDeveloper(String developer) {
-        this.developer = developer;
-    }
-
-    public List<Genre> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(List<Genre> genres) {
-        this.genres = genres;
     }
 
     public void addGenre(Genre genre) {
