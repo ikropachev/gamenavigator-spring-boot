@@ -62,9 +62,9 @@ public class AdminGenreController {
 
     @GetMapping("/{id}")
     @Operation(summary = "View a genre by id")
-    public Genre get(@PathVariable @Parameter(example = GENRE_ID_STR, required = true) int id) {
+    public ResponseEntity<Genre> get(@PathVariable @Parameter(example = GENRE_ID_STR, required = true) int id) {
         log.info("get genre with id {}", id);
-        return genreRepository.findById(id);
+        return ResponseEntity.of(genreRepository.findById(id));
     }
 
     @GetMapping

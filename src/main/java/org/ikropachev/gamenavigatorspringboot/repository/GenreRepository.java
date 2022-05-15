@@ -13,8 +13,8 @@ import java.util.List;
 @Tag(name = "Genre Controller")
 public interface GenreRepository extends BaseRepository<Genre> {
 
-    @Query("SELECT g FROM Genre g WHERE g.id=:id")
-    Genre findById(@Param("id") int id);
+    //@Query("SELECT g FROM Genre g WHERE g.id=:id")
+    //Genre findById(@Param("id") int id);
 
     @Query("SELECT g FROM Genre g WHERE g.name=:name")
     Genre findByName(@Param("name") String name);

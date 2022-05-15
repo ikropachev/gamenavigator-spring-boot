@@ -37,7 +37,7 @@ public class AdminGenreControllerTest extends AbstractControllerTest {
         int newId = created.id();
         newGenre.setId(newId);
         GENRE_MATCHER.assertMatch(created, newGenre);
-        GENRE_MATCHER.assertMatch(genreRepository.findById(newId), newGenre);
+        GENRE_MATCHER.assertMatch(genreRepository.getById(newId), newGenre);
     }
 
     @Test
@@ -62,7 +62,7 @@ public class AdminGenreControllerTest extends AbstractControllerTest {
     void getNotFound() throws Exception {
             perform(MockMvcRequestBuilders.get(REST_URL + NOT_FOUND))
                     .andDo(print())
-                    .andExpect(status().isUnprocessableEntity());
+                    .andExpect(status().isNotFound());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class AdminGenreControllerTest extends AbstractControllerTest {
         perform(MockMvcRequestBuilders.get(REST_URL))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(GENRE_MATCHER.contentJson(genre1, genre3, genre4, genre2));
+                .andExpect(GENRE_MATCHER.contentJson(genre1, genre2, genre3, genre4));
     }
 
     @Test
@@ -84,7 +84,7 @@ public class AdminGenreControllerTest extends AbstractControllerTest {
                 .andDo(print())
                 .andExpect(status().isNoContent());
 
-        GENRE_MATCHER.assertMatch(genreRepository.findById(GENRE_ID), updated);
+        GENRE_MATCHER.assertMatch(genreRepository.getById(GENRE_ID), updated);
     }
 
     @Test
