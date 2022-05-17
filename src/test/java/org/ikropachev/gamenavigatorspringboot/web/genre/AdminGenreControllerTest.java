@@ -98,8 +98,8 @@ public class AdminGenreControllerTest extends AbstractControllerTest {
     @Test
     @WithUserDetails(value = ADMIN_MAIL)
     void deleteNotFound() throws Exception {
-            perform(MockMvcRequestBuilders.delete(REST_URL + "/" + NOT_FOUND))
-                    .andDo(print())
-                    .andExpect(status().isNoContent());
+        perform(MockMvcRequestBuilders.delete(REST_URL + "/" + NOT_FOUND))
+                .andDo(print())
+                .andExpect(status().isNoContent());
     }
 }

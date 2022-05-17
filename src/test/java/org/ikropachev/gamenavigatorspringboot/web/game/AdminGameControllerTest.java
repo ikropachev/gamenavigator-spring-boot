@@ -1,6 +1,5 @@
 package org.ikropachev.gamenavigatorspringboot.web.game;
 
-import org.ikropachev.gamenavigatorspringboot.error.NotFoundException;
 import org.ikropachev.gamenavigatorspringboot.model.Game;
 import org.ikropachev.gamenavigatorspringboot.repository.GameRepository;
 import org.ikropachev.gamenavigatorspringboot.util.JsonUtil;
@@ -18,7 +17,6 @@ import static org.ikropachev.gamenavigatorspringboot.web.game.GameTestData.*;
 import static org.ikropachev.gamenavigatorspringboot.web.genre.GenreTestData.GENRE_ID;
 import static org.ikropachev.gamenavigatorspringboot.web.user.UserTestData.ADMIN_MAIL;
 import static org.ikropachev.gamenavigatorspringboot.web.user.UserTestData.NOT_FOUND;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.slf4j.LoggerFactory.getLogger;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

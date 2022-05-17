@@ -6,7 +6,6 @@ import org.ikropachev.gamenavigatorspringboot.model.Game;
 import org.ikropachev.gamenavigatorspringboot.repository.GameRepository;
 import org.ikropachev.gamenavigatorspringboot.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class AbstractGameController {
     public Game get(int id) throws NotFoundException {
         log.info("get game with id {}", id);
         Game game = gameRepository.findById(id).orElse(null);
-        if (game==null) {
+        if (game == null) {
             throw new NotFoundException("Game not found");
         }
         return game;
