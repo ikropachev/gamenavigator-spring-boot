@@ -1,5 +1,6 @@
 package org.ikropachev.gamenavigatorspringboot.web.game;
 
+import org.ikropachev.gamenavigatorspringboot.error.NotFoundException;
 import org.ikropachev.gamenavigatorspringboot.model.Game;
 import org.ikropachev.gamenavigatorspringboot.repository.GameRepository;
 import org.ikropachev.gamenavigatorspringboot.util.JsonUtil;
@@ -17,6 +18,7 @@ import static org.ikropachev.gamenavigatorspringboot.web.game.GameTestData.*;
 import static org.ikropachev.gamenavigatorspringboot.web.genre.GenreTestData.GENRE_ID;
 import static org.ikropachev.gamenavigatorspringboot.web.user.UserTestData.ADMIN_MAIL;
 import static org.ikropachev.gamenavigatorspringboot.web.user.UserTestData.NOT_FOUND;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.slf4j.LoggerFactory.getLogger;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -44,7 +46,9 @@ public class AdminGameControllerTest extends AbstractControllerTest {
         int newId = created.id();
         newGame.setId(newId);
         GAME_MATCHER.assertMatch(created, newGame);
-        GAME_MATCHER.assertMatch(gameRepository.findById(newId), newGame);
+        GAME_MATCHER.assertMatch(gameRepository.findById(newId).orElse(null), newGame);
+
+
     }
 
     @Test
@@ -59,7 +63,6 @@ public class AdminGameControllerTest extends AbstractControllerTest {
     }
 
     @Test
-    @WithUserDetails(value = ADMIN_MAIL)
     void getUnauth() throws Exception {
         perform(MockMvcRequestBuilders.get(REST_URL + GAME_ID))
                 .andExpect(status().isUnauthorized());
@@ -68,9 +71,9 @@ public class AdminGameControllerTest extends AbstractControllerTest {
     @Test
     @WithUserDetails(value = ADMIN_MAIL)
     void getNotFound() throws Exception {
-            perform(MockMvcRequestBuilders.get(REST_URL + NOT_FOUND))
-                    .andDo(print())
-                    .andExpect(status().isNotFound());
+        perform(MockMvcRequestBuilders.get(REST_URL + NOT_FOUND))
+                .andDo(print())
+                .andExpect(status().isNotFound());
     }
 
     @Test
@@ -104,14 +107,13 @@ public class AdminGameControllerTest extends AbstractControllerTest {
     @WithUserDetails(value = ADMIN_MAIL)
     void update() throws Exception {
         Game updated = getUpdated();
-        updated.setId(null);
         perform(MockMvcRequestBuilders.put(REST_URL + GAME_ID)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.writeValue(updated)))
                 .andDo(print())
                 .andExpect(status().isNoContent());
 
-        GAME_MATCHER.assertMatch(gameRepository.findById(GAME_ID), updated);
+        GAME_MATCHER.assertMatch(gameRepository.findById(GAME_ID).orElse(null), updated);
     }
 
     @Test
@@ -126,8 +128,8 @@ public class AdminGameControllerTest extends AbstractControllerTest {
     @Test
     @WithUserDetails(value = ADMIN_MAIL)
     void deleteNotFound() throws Exception {
-            perform(MockMvcRequestBuilders.delete(REST_URL + NOT_FOUND))
-                    .andDo(print())
-                    .andExpect(status().isUnprocessableEntity());
+        perform(MockMvcRequestBuilders.delete(REST_URL + "/" + NOT_FOUND))
+                .andDo(print())
+                .andExpect(status().isNoContent());
     }
 }

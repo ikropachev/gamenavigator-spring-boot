@@ -51,7 +51,6 @@ public class AdminGenreControllerTest extends AbstractControllerTest {
     }
 
     @Test
-    @WithUserDetails(value = ADMIN_MAIL)
     void getUnauth() throws Exception {
         perform(MockMvcRequestBuilders.get(REST_URL + GENRE_ID))
                 .andExpect(status().isUnauthorized());
@@ -101,6 +100,6 @@ public class AdminGenreControllerTest extends AbstractControllerTest {
     void deleteNotFound() throws Exception {
             perform(MockMvcRequestBuilders.delete(REST_URL + "/" + NOT_FOUND))
                     .andDo(print())
-                    .andExpect(status().isUnprocessableEntity());
+                    .andExpect(status().isNoContent());
     }
 }

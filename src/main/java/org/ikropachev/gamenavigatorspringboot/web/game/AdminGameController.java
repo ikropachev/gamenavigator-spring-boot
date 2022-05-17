@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.ikropachev.gamenavigatorspringboot.View;
+import org.ikropachev.gamenavigatorspringboot.error.NotFoundException;
 import org.ikropachev.gamenavigatorspringboot.model.Game;
 import org.ikropachev.gamenavigatorspringboot.model.Genre;
 import org.springframework.http.HttpStatus;

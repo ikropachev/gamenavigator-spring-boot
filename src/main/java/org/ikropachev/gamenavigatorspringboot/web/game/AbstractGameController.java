@@ -1,10 +1,12 @@
 package org.ikropachev.gamenavigatorspringboot.web.game;
 
 import lombok.extern.slf4j.Slf4j;
+import org.ikropachev.gamenavigatorspringboot.error.NotFoundException;
 import org.ikropachev.gamenavigatorspringboot.model.Game;
 import org.ikropachev.gamenavigatorspringboot.repository.GameRepository;
 import org.ikropachev.gamenavigatorspringboot.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -18,9 +20,13 @@ public class AbstractGameController {
     @Autowired
     protected GenreRepository genreRepository;
 
-    public Game get(int id) {
+    public Game get(int id) throws NotFoundException {
         log.info("get game with id {}", id);
-        return gameRepository.findById(id);
+        Game game = gameRepository.findById(id).orElse(null);
+        if (game==null) {
+            throw new NotFoundException("Game not found");
+        }
+        return game;
     }
 
     public List<Game> getAll() {

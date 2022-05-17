@@ -53,7 +53,7 @@ public class AdminGenreController {
                                           @Parameter(example = GAME_ID_STR, required = true) int gameId,
                                           @RequestBody Genre genreRequest) {
         int genreId = genreRequest.getId();
-        Game game = gameRepository.findById(gameId);
+        Game game = gameRepository.findById(gameId).orElse(null);
         Genre genre = genreRepository.getById(genreId);
         game.addGenre(genre);
         gameRepository.save(game);
